@@ -1,6 +1,5 @@
 import nltk
 import ssl
-import re
 
 # ssl certificate error fix
 try:
@@ -13,7 +12,7 @@ else:
 from nltk.stem import WordNetLemmatizer
 nltk.download('wordnet')
 
-
+# Read file
 with open('data/cleaned_tamil.txt', 'r', encoding='utf-8') as f:
     print('Reading the file... ', end='')
     text = f.read()
