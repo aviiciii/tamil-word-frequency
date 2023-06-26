@@ -20,7 +20,7 @@ def strip_frequency(lines):
     return lines
 
 # variables (set here)
-no_of_lines = 100
+no_of_lines = 10000
 file_path = 'data/output.txt'
     
 # call function
