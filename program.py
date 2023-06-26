@@ -14,8 +14,8 @@ from nltk.stem import WordNetLemmatizer
 nltk.download('wordnet')
 
 
-# Sample Tamil text
-text = "உலகம் மிகப்பெரிய தடைகள் அடைந்துள்ளது. இது திரையை புதுப்பிக்க தடை எடுத்துவிடுகிறது."
+with open('data/cleaned_tamil.txt', 'r', encoding='utf-8') as f:
+    text = f.read()
 
 # Tokenize the text using nltk
 words = nltk.word_tokenize(text)
@@ -34,17 +34,11 @@ for word in normalized_words:
     else:
         word_freq[word] = 1
 
-# Print the word frequencies
-for word, freq in word_freq.items():
-    print(word, freq)
+# Sort the dictionary in descending order
+sorted_word_freq = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
 
+# Write the output to a dictionary file
+with open('data/output.txt', 'w', encoding='utf-8') as f:
+    for word, freq in sorted_word_freq:
+        f.write(f'{freq}: {word}\n')
 
-def clean_text(text):
-    # Remove punctuations
-    text = re.sub(r'[^\w\s]', '', text)
-
-    # Remove numbers
-    text = re.sub(r'\d+', '', text)
-
-    # Remove English characters
-    text = re.sub(r'[A-Za-z]+', '', text)
