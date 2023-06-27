@@ -6,13 +6,16 @@ def main():
     Remove English words, numbers and emojis from the raw text (.txt files)
     """
     
-    filename = 'data/raw.txt'
+    filename = 'data/input/v3/raw.txt'
 
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         text = f.read()
+
+    print("File read")
 
     # Tokenize the text using nltk
     text = nltk.word_tokenize(text)
+    print("Text tokenized")
 
     # Clean the text
     text = clean_text(text)
@@ -21,10 +24,11 @@ def main():
 
 
     # save the cleaned text
-    with open('data/cleaned_tamil.txt', 'w') as f:
+    with open('data/input/v3/pre.txt', 'w') as f:
         f.write(' '.join(text))
 
     print("Text cleaned")
+
 
 
 def clean_text(words):
@@ -33,7 +37,6 @@ def clean_text(words):
     print("Numbers removed")
 
     return words
-
 
 def remove_english_words(words):
     # Define a regular expression pattern to match English words

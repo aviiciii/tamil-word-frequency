@@ -2,7 +2,7 @@ import nltk
 import ssl
 import csv
 
-# ssl certificate error fix
+# SSL certificate error fix
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -11,41 +11,43 @@ else:
     ssl._create_default_https_context = _create_unverified_https_context
 
 from nltk.stem import WordNetLemmatizer
+from collections import defaultdict
+nltk.download('punkt')
 nltk.download('wordnet')
 
-version = 2
+version = 3
 
-# Read file
-with open(f'data/input/v{version}/data.txt', 'r', encoding='utf-8') as f:
+with open(f'data/input/v{version}/pre.txt', 'r', encoding='latin-1') as f:
     text = f.read()
+print("File read successfully.")
 
 # Tokenize the text using nltk
 words = nltk.word_tokenize(text)
+print("Text tokenized successfully.")
 
 # Initialize the WordNetLemmatizer for Tamil
 lemmatizer = WordNetLemmatizer()
+print("Lemmatizer initialized successfully.")
 
 # Normalize and lemmatize the words
-normalized_words = [lemmatizer.lemmatize(word) for word in words]
+normalized_words = (lemmatizer.lemmatize(word) for word in words)
+print("Words normalized and lemmatized successfully.")
 
-# Count the frequencies using a dictionary
-count=0
-word_freq = {}
+# Count the frequencies using a defaultdict
+word_freq = defaultdict(int)
 for word in normalized_words:
-    if word in word_freq:
-        word_freq[word] += 1
-    else:
-        word_freq[word] = 1
+    word_freq[word] += 1
+print("Word frequencies counted successfully.")
 
-    if count%1000 == 0:
-        print(count)
-    count+=1
-    
 # Sort the dictionary in descending order
 sorted_word_freq = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
+print("Word frequencies sorted successfully.")
 
-# Write the output as a csv file
-with open(f'data/output/{version}.csv', 'w', encoding='utf-8') as csv:
-    csv.write('word,frequency\n')
-    for word, freq in sorted_word_freq:
-        csv.write(word + ',' + str(freq) + '\n')
+# Write the output to a CSV file
+output_path = f'data/output/{version}.csv'
+with open(output_path, 'w', newline='', encoding='utf-8') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['word', 'frequency'])
+    writer.writerows(sorted_word_freq)
+print("Output written to CSV file successfully.")
+
