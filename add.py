@@ -2,7 +2,7 @@ import csv
 from collections import defaultdict
 
 # Paths
-input1 = 'data/output/2_a.csv'  # smaller file
+input1 = 'data/output/1.csv'  # smaller file
 input2 = 'data/output/2.csv'  # larger file
 output_path = 'data/output/2.csv'  # output file
 

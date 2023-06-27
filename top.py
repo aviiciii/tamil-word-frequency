@@ -2,9 +2,17 @@ import csv
 import os
 
 def main():
-    # Variables (set here)
-    no_of_rows = 10000
-    version = 1
+    # Version
+    version = 2
+
+    # Number of rows
+    no_of_rows = (100, 250, 500, 1000, 5000, 10000)
+
+    # Call function
+    for n in no_of_rows:
+        top(n, version)
+
+def top(no_of_rows, version):
 
     # paths
     input_path = f'data/output/filtered/{version}.csv'
