@@ -1,13 +1,21 @@
 import csv
+import os
 
 def main():
     # Variables (set here)
-    no_of_rows = 5000
+    no_of_rows = 10000
     version = 1
 
     # paths
     input_path = f'data/output/filtered/{version}.csv'
-    output_path = f'output/v{version}/top_{no_of_rows}.csv'
+
+    output_dir = f'output/v{version}'
+    output_path = f'{output_dir}/top_{no_of_rows}.csv'
+
+    # check if output folder exists
+    if not os.path.exists(output_dir):
+        os.makedirs(f'output/v{version}')
+        print("The new directory is created!")
 
     # Call function
     rows = read_n_rows(input_path, no_of_rows)
@@ -17,6 +25,8 @@ def main():
         writer = csv.writer(file)
         for row in rows:
             writer.writerow([row[0], row[1]])
+
+    print(f'Summary: {len(rows)} rows saved to {output_path}')
 
 def read_n_rows(file_path, n):
     rows = []
