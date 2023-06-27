@@ -9,8 +9,10 @@ filtered_frequencies = []
 total_length = 0
 filtered_length = 0
 
+file_path = 'data/output/3_clean.csv'
+
 # Open the CSV file
-with open('data/output/2.csv', 'r') as file:
+with open(file_path, 'r') as file:
     reader = csv.reader(file)
     
     header = next(reader)  # Skip the header row
@@ -57,8 +59,8 @@ with open('data/output/2.csv', 'r') as file:
         #     print('Processed {} words'.format(total_length))
 
 
-# save the filtered words and frequencies to a new csv file
-with open('data/output/filtered/2.csv', 'w') as file:
+# save the filtered words and frequencies to the csv file
+with open('data/output/3_clean.csv', 'w') as file:
     writer = csv.writer(file)
     # header
     writer.writerow(['word', 'frequency'])

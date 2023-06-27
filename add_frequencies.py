@@ -2,9 +2,9 @@ import csv
 from collections import defaultdict
 
 # Paths
-input1 = 'data/output/1.csv'  # smaller file
+input1 = 'data/output/3.csv'  # smaller file
 input2 = 'data/output/2.csv'  # larger file
-output_path = 'data/output/2.csv'  # output file
+output_path = 'data/output/3.csv'  # output file
 
 word_freq = defaultdict(int)  # Dictionary to store word frequencies
 
