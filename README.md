@@ -1,4 +1,4 @@
-# Tamil Words Filtering and Frequency Processing
+# Tamil Words Frequency Processing
 
 This repository provides a Python script that allows for efficient filtering and processing of words and their frequencies in a CSV file. The script focuses on filtering non-Tamil words and removing trailing punctuation from a large dataset.
 
