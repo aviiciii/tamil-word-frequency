@@ -9,7 +9,7 @@ def main():
     """
 
     # Version
-    version = 2
+    version = 3
 
     # Sort the file
     sort(version)

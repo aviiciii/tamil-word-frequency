@@ -1,5 +1,20 @@
 import nltk
 import re
+import io
+
+
+
+def remove_unusual_line_terminators(filepath):
+    with io.open(filepath, 'r', newline='', encoding='utf-8') as file:
+        text = file.read()
+
+    # Remove unusual line terminators
+    text = text.replace('\r', '').replace('\x0b', '').replace('\x0c', '')
+
+    with io.open(filepath, 'w', encoding='utf-8') as file:
+        file.write(text)
+
+    print(f"Unusual line terminators removed. Output saved at: {filepath}")
 
 def main():
     """
@@ -7,6 +22,8 @@ def main():
     """
     
     filename = 'data/input/v3/raw.txt'
+
+    remove_unusual_line_terminators(filename)
 
     with open(filename, 'r', encoding='utf-8') as f:
         text = f.read()

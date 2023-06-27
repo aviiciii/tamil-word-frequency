@@ -17,7 +17,7 @@ nltk.download('wordnet')
 
 version = 3
 
-with open(f'data/input/v{version}/pre.txt', 'r', encoding='latin-1') as f:
+with open(f'data/input/v{version}/b.txt', 'r') as f:
     text = f.read()
 print("File read successfully.")
 
@@ -44,7 +44,7 @@ sorted_word_freq = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
 print("Word frequencies sorted successfully.")
 
 # Write the output to a CSV file
-output_path = f'data/output/{version}.csv'
+output_path = f'data/output/{version}a.csv'
 with open(output_path, 'w', newline='', encoding='utf-8') as csv_file:
     writer = csv.writer(csv_file)
     writer.writerow(['word', 'frequency'])
