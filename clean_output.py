@@ -28,9 +28,22 @@ with open('data/filtered_punc.csv', 'r+') as file:
             
             # check if first character is a punctuation
             if word[0] in string.punctuation:
-                word = word[1:]  # remove the punctuation
-                if word == '':
-                    continue
+                while word[0] in string.punctuation:
+                    word = word[1:]  # remove the punctuation
+                    print(word)
+                    if word == '':
+                        continue
+                filtered_length += 1
+
+            # check if last character is punctuation
+            if word[-1] in string.punctuation:
+                while word[-1] in string.punctuation:
+                    word = word[:-1]  # remove the punctuation
+                    print(word)
+                    if word == '':
+                        continue
+                filtered_length += 1
+
 
             filtered_words.append(word)
             filtered_frequencies.append(frequency)
