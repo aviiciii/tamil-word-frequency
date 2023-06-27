@@ -18,9 +18,10 @@ This project utilizes multiple datasets
 
 1. https://www.kaggle.com/datasets/praveengovi/tamil-language-corpus-for-nlp
 2. https://github.com/KaniyamFoundation/all_tamil_words/blob/master/words_and_frequency.tar.bz2
+3. https://github.com/ajithalbus/TamilCorpus/
 
 
-If you use this dataset, please provide appropriate credits and citations to the Kaniyam Foundation for their contribution.
+If you use this dataset, please provide appropriate credits and citations to the above sources for their contribution.
 
 ## License
 
