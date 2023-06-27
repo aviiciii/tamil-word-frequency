@@ -1,17 +1,20 @@
 import csv
 
-# paths
-input_path = 'data/input/4.csv'
+# 1, 2, 3 done
 
-output_path = 'data/output/2.csv'
+# paths
+input1 = 'data/input/4.csv' # smaller file
+input2 = 'data/input/5.csv' # larger file
+
+output_path = 'data/output/2_a.csv' # output file
 
 words = []
 frequencies = []
 words_read = 0
 
 # read output file
-with open(output_path, 'r') as csv_file:
-    print('reading output file')
+with open(input1, 'r') as csv_file:
+    print('Reading input1... ', end='')
 
     reader = csv.reader(csv_file)
 
@@ -20,14 +23,14 @@ with open(output_path, 'r') as csv_file:
         frequencies.append(row[1].strip())
         words_read += 1
 
-        if words_read % 50000 == 0:
-            print(words_read)
+        if words_read % 10000 == 0:
+            print("#", end='')
 
-print('read output file')
+print(f'\nCompleted. Words read: {words_read}')
+words_read = 0
 
-
-with open(input_path, 'r') as csv_file:
-    print('reading input file')
+with open(input2, 'r') as csv_file:
+    print('Reading input2... ', end='')
     reader = csv.reader(csv_file)
 
     for row in reader:
@@ -41,14 +44,13 @@ with open(input_path, 'r') as csv_file:
         else:
             words.append(row[0])
             frequencies.append(row[1])
-        if words_read % 50000 == 0:
-            print(words_read)
+        if words_read % 10000 == 0:
+            print("#", end='')
+
+print(f'\nCompleted. Words read: {words_read}')
 
     
-
-print('read input2')
-
-print('writing to file')
+print('Writing to file... ', end='')
 # write to file
 with open(output_path, 'w') as csv_file:
     writer = csv.writer(csv_file)
@@ -57,4 +59,4 @@ with open(output_path, 'w') as csv_file:
     for i in range(len(words)):
         writer.writerow([words[i], frequencies[i]])
     
-print('done')
+print('Done!')
