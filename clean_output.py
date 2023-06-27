@@ -10,7 +10,7 @@ total_length = 0
 filtered_length = 0
 
 # Open the CSV file
-with open('data/filtered_punc.csv', 'r+') as file:
+with open('data/output/2.csv', 'r') as file:
     reader = csv.reader(file)
     
     header = next(reader)  # Skip the header row
@@ -58,7 +58,7 @@ with open('data/filtered_punc.csv', 'r+') as file:
 
 
 # save the filtered words and frequencies to a new csv file
-with open('data/filtered_punc.csv', 'w') as file:
+with open('data/output/filtered/2.csv', 'w') as file:
     writer = csv.writer(file)
     # header
     writer.writerow(['word', 'frequency'])

@@ -2,9 +2,9 @@ import csv
 from collections import defaultdict
 
 # Paths
-input1 = 'data/input/v2/4.csv'  # smaller file
-input2 = 'data/input/v2/5.csv'  # larger file
-output_path = 'data/output/2_b.csv'  # output file
+input1 = 'data/output/2_a.csv'  # smaller file
+input2 = 'data/output/2.csv'  # larger file
+output_path = 'data/output/2.csv'  # output file
 
 word_freq = defaultdict(int)  # Dictionary to store word frequencies
 
@@ -13,11 +13,11 @@ print('Reading input1... ', end='')
 with open(input1, 'r') as csv_file:
     reader = csv.DictReader(csv_file)
     for row in reader:
-        print(row)
         word = row['word'].strip()
         freq = int(row['frequency'])
         word_freq[word] += freq
 print('Completed.')
+print(len(word_freq))
 
 # Read input2
 print('Reading input2... ', end='')
@@ -28,6 +28,7 @@ with open(input2, 'r') as csv_file:
         freq = int(row['frequency'])
         word_freq[word] += freq
 print('Completed.')
+print(len(word_freq))
 
 # Write to file
 print('Writing to file... ', end='')
