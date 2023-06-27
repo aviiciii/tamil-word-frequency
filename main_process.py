@@ -1,5 +1,6 @@
 import nltk
 import ssl
+import csv
 
 # ssl certificate error fix
 try:
@@ -12,50 +13,39 @@ else:
 from nltk.stem import WordNetLemmatizer
 nltk.download('wordnet')
 
+version = 2
+
 # Read file
-with open('data/cleaned_tamil.txt', 'r', encoding='utf-8') as f:
-    print('Reading the file... ', end='')
+with open(f'data/input/v{version}/data.txt', 'r', encoding='utf-8') as f:
     text = f.read()
-    print('Done!')
 
 # Tokenize the text using nltk
-print('Tokenizing the text... ', end='')
 words = nltk.word_tokenize(text)
-print('Done!')
 
 # Initialize the WordNetLemmatizer for Tamil
-print('Initializing the WordNetLemmatizer... ', end='')
 lemmatizer = WordNetLemmatizer()
-print('Done!')
 
 # Normalize and lemmatize the words
-print('Normalizing and lemmatizing the words... ', end='')
 normalized_words = [lemmatizer.lemmatize(word) for word in words]
-print('Done!')
 
 # Count the frequencies using a dictionary
-print('Counting the frequencies... ')
-i=0
+count=0
 word_freq = {}
 for word in normalized_words:
     if word in word_freq:
         word_freq[word] += 1
     else:
         word_freq[word] = 1
-    if i%1000 == 0:
-        print(f'Processed {i} words...')
-    i+=1
-print('Done!')
+
+    if count%1000 == 0:
+        print(count)
+    count+=1
     
-print('Sorting... ', end='')
 # Sort the dictionary in descending order
 sorted_word_freq = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
-print('Done!')
 
-# Write the output as a key value pair
-print('Writing the output... ', end='')
-with open('data/output.txt', 'w', encoding='utf-8') as f:
+# Write the output as a csv file
+with open(f'data/output/{version}.csv', 'w', encoding='utf-8') as csv:
+    csv.write('word,frequency\n')
     for word, freq in sorted_word_freq:
-        f.write(f'{freq}: {word}\n')
-print('Done!')
-
+        csv.write(word + ',' + str(freq) + '\n')
