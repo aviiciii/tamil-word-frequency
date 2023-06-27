@@ -1,38 +1,42 @@
-def read_n_lines(file_path, n):
-    lines = []
+import csv
+import os
+
+def main():
+    # Variables (set here)
+    no_of_rows = 10000
+    version = 1
+
+    # paths
+    input_path = f'data/output/filtered/{version}.csv'
+
+    output_dir = f'output/v{version}'
+    output_path = f'{output_dir}/top_{no_of_rows}.csv'
+
+    # check if output folder exists
+    if not os.path.exists(output_dir):
+        os.makedirs(f'output/v{version}')
+        print("The new directory is created!")
+
+    # Call function
+    rows = read_n_rows(input_path, no_of_rows)
+
+    # Save to csv file
+    with open(output_path, 'w', newline='') as file:
+        writer = csv.writer(file)
+        for row in rows:
+            writer.writerow([row[0], row[1]])
+
+    print(f'Summary: {len(rows)} rows saved to {output_path}')
+
+def read_n_rows(file_path, n):
+    rows = []
     with open(file_path, 'r') as file:
-        for i in range(n):
-            line = file.readline()
-            if not line:
+        reader = csv.reader(file)
+        for i, row in enumerate(reader):
+            if i >= n:
                 break
-            lines.append(line.rstrip('\n'))  # Remove newline character
+            rows.append(row)
+    return rows
 
-    return lines
-
-def strip_frequency(lines):
-    for i in range(len(lines)):
-        # keep text after :
-        line = lines[i].split(':')[-1]
-        # remove whitespace
-        line = line.strip()
-        # update the element in the lines list
-        lines[i] = line
-    return lines
-
-# variables (set here)
-no_of_lines = 10000
-file_path = 'data/output.txt'
-    
-# call function
-lines = read_n_lines(file_path, no_of_lines)
-
-# process lines
-
-lines = strip_frequency(lines)
-    
-
-
-# save to file
-with open(f'output/top_{no_of_lines}.txt', 'w') as file:
-    for line in lines:
-        file.write(line + '\n')
+if __name__ == '__main__':
+    main()
