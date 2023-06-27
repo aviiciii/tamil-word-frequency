@@ -12,9 +12,18 @@ The Word Filtering and Frequency Processing script is designed to handle large d
 - Trailing Punctuation Removal: The script removes trailing punctuation marks from words, enhancing data quality and compatibility with natural language processing tasks.
 - CSV Output: The processed words and their frequencies are saved in a CSV file, making it easy to integrate the results into downstream applications.
 
+## Output Info
+
+The latest version with 3 large datasets can be found in the `./output/v3` directory.
+
+- It has tamil words ordered by frequency from top 100 to top 10,000.
+- If you require a larger set of data (there is a lot). Reach me at [my email](mailto:laavesh1@gmail.com).
+
 ## Dataset Credits
 
-This project utilizes multiple datasets
+Total count of words: 45,91,656 🚀
+
+This project utilizes multiple datasets (thank YOU!)
 
 1. https://www.kaggle.com/datasets/praveengovi/tamil-language-corpus-for-nlp
 2. https://github.com/KaniyamFoundation/all_tamil_words/blob/master/words_and_frequency.tar.bz2
