@@ -1,6 +1,8 @@
 import csv
 import json
 
+# Make a list of words from a CSV file in JSON format
+
 csv_file = 'output/v3/top_250.csv'  # Replace with the path to your CSV file
 json_file = 'data.json'  # Replace with the desired path for the JSON file
 
