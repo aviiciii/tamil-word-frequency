@@ -32,6 +32,8 @@ The collection of Python scripts that facilitate the processing, analysis, and g
 
 5. `post_process.py` : The primary purpose of this script is to generate a new release of outputs. It sorts the output based on frequency or any other specified criteria and creates a summary of the processed data. This script provides options to customize the sorting order and control the summary generation process.
 
+6. `json_list.py` : The script is designed to convert the output data from a CSV file to JSON format. It provides a convenient way to transform tabular data stored in a CSV file into a structured JSON list of the words ordered by frequency.
+
 
 ## Dataset Credits
 
