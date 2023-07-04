@@ -14,6 +14,8 @@ The Word Filtering and Frequency Processing script is designed to handle large d
 
 ## Output Info
 
+Total count of unique words: 45,91,656 🚀
+
 The latest version of the dataset is available in the `./output/v3`directory. The available thresholds are as follows:
 - top 100
 - top 250
@@ -44,8 +46,6 @@ The collection of Python scripts that facilitate the processing, analysis, and g
 
 
 ## Dataset Credits
-
-Total count of words: 45,91,656 🚀
 
 This project utilizes multiple datasets (thank YOU!)
 
