@@ -14,10 +14,34 @@ The Word Filtering and Frequency Processing script is designed to handle large d
 
 ## Output Info
 
-The latest version with 3 large datasets can be found in the `./output/v3` directory.
+The latest version of the dataset is available in the `./output/v3`directory. The available thresholds are as follows:
+    - top 100
+    - top 250
+    - top 500
+    - top 1,000
+    - top 5,000
+    - top 10,000
+    - top 25,000
+    - top 50,000
+    - top 1,00,000
 
-- It has tamil words ordered by frequency from top 100 to top 10,000.
-- If you require a larger set of data (there is a lot). Reach me at [my email](mailto:laavesh1@gmail.com).
+The complete output dataset can be found on [kaggle](https://www.kaggle.com/datasets/aviiciii/tamil-words-frequency).
+
+## Python Scripts
+The collection of Python scripts that facilitate the processing, analysis, and generation of outputs from a dataset. The scripts are designed to perform specific tasks sequentially to achieve the desired results. The scripts included in this repository are as follows:
+
+1. `pre-process.py` : This script is responsible for preprocessing the dataset to standardize the data. It prepares the input data for further processing by applying necessary transformations, cleaning steps, or standardization techniques.
+
+2. `main_process.py` : The main functionality of this script is to calculate the frequencies of words in the preprocessed dataset. It analyzes the text and generates word frequency information, which can be useful for various applications such as text analysis, language modeling, or information retrieval.
+
+3. `clean_output.py` (Optional): If the dataset contains non-Tamil words, punctuations, or any unwanted characters, this script can be used to clean the output. It provides functionality to remove non-Tamil words, punctuation marks, or any specified set of characters from the dataset.
+
+4. `add_frequencies.py` : This script allows you to add the frequencies of the existing output to the new output. It merges or combines the word frequencies from different sources to provide a comprehensive analysis of the entire dataset.
+
+5. `post_process.py` : The primary purpose of this script is to generate a new release of outputs. It sorts the output based on frequency or any other specified criteria and creates a summary of the processed data. This script provides options to customize the sorting order and control the summary generation process.
+
+6. `json_list.py` : The script is designed to convert the output data from a CSV file to JSON format. It provides a convenient way to transform tabular data stored in a CSV file into a structured JSON list of the words ordered by frequency.
+
 
 ## Dataset Credits
 

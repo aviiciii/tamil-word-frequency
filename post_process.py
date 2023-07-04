@@ -15,7 +15,7 @@ def main():
     sort(version)
 
     # Call function to create top csv files
-    no_of_rows = (100, 250, 500, 1000, 5000, 10000)
+    no_of_rows = (100, 250, 500, 1000, 5000, 10000, 25000, 50000, 100000)
     for n in no_of_rows:
         top(n, version)
 
