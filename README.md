@@ -25,7 +25,7 @@ The latest version of the dataset is available in the `./output/v3`directory. Th
     - top 50,000
     - top 1,00,000
 
-The complete output dataset can be found on [kaggle](https://www.kaggle.com/datasets/aviiciii/tamil-words-frequency).
+_**The complete output of words and frequencies can be found on the [kaggle dataset](https://www.kaggle.com/datasets/aviiciii/tamil-words-frequency).**_
 
 ## Python Scripts
 The collection of Python scripts that facilitate the processing, analysis, and generation of outputs from a dataset. The scripts are designed to perform specific tasks sequentially to achieve the desired results. The scripts included in this repository are as follows:
