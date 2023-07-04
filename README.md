@@ -15,15 +15,15 @@ The Word Filtering and Frequency Processing script is designed to handle large d
 ## Output Info
 
 The latest version of the dataset is available in the `./output/v3`directory. The available thresholds are as follows:
-    - top 100
-    - top 250
-    - top 500
-    - top 1,000
-    - top 5,000
-    - top 10,000
-    - top 25,000
-    - top 50,000
-    - top 1,00,000
+- top 100
+- top 250
+- top 500
+- top 1,000
+- top 5,000
+- top 10,000
+- top 25,000
+- top 50,000
+- top 1,00,000
 
 _**The complete output of words and frequencies can be found on the [kaggle dataset](https://www.kaggle.com/datasets/aviiciii/tamil-words-frequency).**_
 
